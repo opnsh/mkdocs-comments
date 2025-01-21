@@ -1,0 +1,67 @@
+site_name: Theo's Blog
+site_url: https://sae.ovh
+theme:
+  name: material
+  palette: 
+    - media: "(prefers-color-scheme)"
+      primary: deep orange
+      toggle:
+        icon: material/lightbulb-auto
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      primary: deep orange
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep orange
+      toggle:
+        icon: material/lightbulb
+        name: Switch to system preference
+
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.instant.preview
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
+  - blog:
+      post_url_format: "{slug}"
+
+extra:
+  social:
+    - icon: fontawesome/brands/mastodon 
+      link: https://fosstodon.org/@squidfunk
+    - icon: simple/youtube
+      link: https://fosstodon.org/@squidfunk
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      
+hooks:
+  - hooks/socialmedia.py
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Blog: 
+    - blog/index.md
+  - Tags: tags.md
